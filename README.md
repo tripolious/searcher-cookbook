@@ -15,7 +15,7 @@ All in all you need to love competitive games to stay up with all the excellent 
 - 03 - [log information and update your program via discord](discord-usage/README.md) - Example usage to use discord to update your bot without restarting and also log data you will use to debug your bundles
 - 04 - **to be announced** - Example usage of logs to load and prepare pairs and tokens
 - 05 - **to be announced** - cache in-memory your pairs and save it when you shut down your bot
-- 06 - **to be announced** - Smart Contract to make an onchain calculation for uni2 and uni3 pairs
+- 06 - [on chain calculation](onchain-calculation/README.md) - Smart Contract to make an on chain calculation for uni2 and uni3 pairs
 - 07 - **to be announced** - Smart Contracts without flashswaps
   - 07.1 - **to be announced** - uni2-swaps assembly contract 
   - 07.2 - **to be announced** - add uni3-swaps
