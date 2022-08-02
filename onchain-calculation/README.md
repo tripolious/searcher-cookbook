@@ -15,7 +15,7 @@ forge test
 ```
 
 You will see two different calculations for trades. One is profitable and one is not.  
-Checkout test/OnChainCalc.t.sol and src/OnChainCalc.sol for some additional notes regarding the calldata.
+Checkout `test/OnChainCalc.t.sol` and `src/OnChainCalc.sol` for some additional notes regarding the calldata.
 
 ```go
 go run main.go

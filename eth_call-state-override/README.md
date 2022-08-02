@@ -1,20 +1,21 @@
 # eth_call state override
 
 As you maybe know you can use the third param in eth_call to override the state while you call the endpoint.  
-This opens some possibilities, like query the chain or write a smart contract you don't need to deploy.  
-
-In the example you will find an example that overwrites an uni2 pair to query in bulk to get the current reserves.
+This opens some possibilities, like query the chain or write a smart contract you don't need to deploy.
 
 ### bulk call to get reserves
-In the bulk-call/bulk-call.go you will find an example of how you can make a bulk call to eth_call and get the reserves from the pairs.  
+In bulk-call.go you will find an example of how you can make a bulk call to eth_call and get the reserves from the pairs.  
 The advantage of a bulk-call is, that you can run multiple smart contract calls with only one call to the node.  
-Use this as an improvement to reduce calls in your bot ;)
+You can use the bulk-call to group and reduce calls in general.
 
 ```go 
 go run bulk-call/bulk-call.go --rpc _wss_connection_string_
 ```
 
 ### explanation
+Normally the uni2 pair contract returns `_reserve0 uint112, _reserve1 uint112, _blockTimestampLast uint32`, but we want `address pair, uint112 reserve0, uint112 reserve1`
+
+We use this contract to overwrite the state of original pair contract and return what we want.
 ```
 //SPDX-License-Identifier: UNLICENSED
 pragma solidity = 0.8.15;
@@ -31,19 +32,11 @@ contract Uni2ReserveInfo {
     }
 }
 ```
-is our fake contract we created  
 
-normally the uni2 pair contract returns  
-_reserve0 uint112, _reserve1 uint112, _blockTimestampLast uint32    
-
-to help summarize the data for later processing we want the following return values  
-address pair, uint112 reserve0, uint112 reserve1
-
-after you have your custom contract you need the deployed byte-code to use it to overwrite the state of the original pair contract  
+After you have your custom contract you need the deployed byte-code to use it to overwrite the state. To get the deployed byte-code you can use solc to generate it. 
 ```bash
 solc Xyz.sol --bin-runtime --optimize
 ```
-if you don't have solc, you can use remix, deploy the contract and you will find it in "Compilation Details" => RUNTIME BYTECODE
 
 ### Tips
 Of course, you don't need to use assembly in your fake smart contract  
@@ -66,4 +59,4 @@ interface IUniswapV3PoolData {
 }
 ```
 
-Generally you can also just use the BatchCall without an overwrite to reduce calls. 
+Generally you can also just use the BatchCall without an overwrite to reduce calls.

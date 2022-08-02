@@ -2,9 +2,9 @@
 ```
 apt-get update && apt-get upgrade
 apt-get install htop git
-wget https://go.dev/dl/go1.18.4.linux-amd64.tar.gz
-sha256sum go1.18.4.linux-amd64.tar.gz => c9b099b68d93f5c5c8a8844a89f8db07eaa58270e3a1e01804f17f4cf8df02f5
-rm -rf /usr/local/go && tar -C /usr/local -xzf go1.18.4.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.19.linux-amd64.tar.gz
+sha256sum go1.19.linux-amd64.tar.gz => 464b6b66591f6cf055bc5df90a9750bf5fbc9d038722bb84a9d56a2bea974be6
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin
 git clone https://github.com/flashbots/mev-geth
 cd mev-geth/
@@ -39,8 +39,8 @@ For most of your strategies it's important that you have your own node. With you
 Another big benefit is that you can use eth_callBundle locally and reduce time for your simulations.
 
 ## Recommendation
-You can use any provider to start with your journey. Later you also want to optimize your latency - your best bet for latency is in the most cases US-East-2 (AWS).  
-AWS is  the most expensive provider and so you should choose something different for your start, also you will need some knowledge in other services like the vpc to configure everything securely and right - if you have specific questions regarding aws configuration's, please let me know, and I will help you if I can ;).
+You can use any provider to start. Later you also want to optimize your latency - your best bet for latency is in the most cases US-East-2 (AWS).  
+AWS is the most expensive provider and so you should choose something different to start.
 
 **To start with, a provider like hetzner** (40-60$) or a local linux server is enough. Personally I use hetzner as the provider for my testings and development of new strategies.
 
@@ -60,15 +60,15 @@ download the chosen version and check the checksum - you should always do this ;
 remove probably old versions and unzip the binary  
 export your go path and check if the version is the one you downloaded
 ```
-wget https://go.dev/dl/go1.18.4.linux-amd64.tar.gz
-sha256sum go1.18.4.linux-amd64.tar.gz => c9b099b68d93f5c5c8a8844a89f8db07eaa58270e3a1e01804f17f4cf8df02f5
-rm -rf /usr/local/go && tar -C /usr/local -xzf go1.18.4.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.19.linux-amd64.tar.gz
+sha256sum go1.19.linux-amd64.tar.gz => 464b6b66591f6cf055bc5df90a9750bf5fbc9d038722bb84a9d56a2bea974be6
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin
 go version
 ```
 
 ### Install mev-geth (or erigon)
-We love eth_callBundle and will use it in later scripts, so you should choose a node where this rpc endpoint is available.  
+As we're going to use eth_callBundle, you should choose a node where this rpc endpoint is available.  
 Always check the tags on github and decide if you want to install from master or a specific tag. To install from a tag you can check out that branch.
 
 ```
