@@ -13,7 +13,7 @@ I will try to cover most of the topics you need to know as a searcher, so you ca
 - 05 - **to be announced** - Store pairs and their state in-memory and save it when you shut down or restart your program
 - 06 - [on chain calculation](onchain-calculation) - Smart Contract to make an on chain calculation for uni2 and uni3 swaps
 - 07 - **to be announced** - Gas and calldata optimized assembly contract for uni2 and uni3 swaps
-- 08 - **to be announced** - Off-chain calculation for uni2 and uni3 swaps
+- 08 - [off chain calculation](offchain-calculation) - Calculate swaps for uniswapv2 and uniswapv3 off chain.
 - 09 - **to be announced** - Prepare pairs with possible trade-ways for faster look-ups and calculations
 - 10 - **to be announced** - Use eth_callBundle locally for faster checks
 - 11 - **to be announced** - How to use eth_sendBundle and flashbots_getBundleStats to check your bundle
